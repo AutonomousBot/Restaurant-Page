@@ -1,0 +1,11 @@
+body {
+  min-height: 100vh;
+  margin: 0px;
+  padding: 0px;
+  font-family: -Hero, Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+/*  */
+#Menu button:hover {
+  cursor: pointer;
+}
