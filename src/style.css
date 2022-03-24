@@ -33,7 +33,7 @@ body {
 }
 
 #navigation, #content, #footer {
-  background-color: rgba(172, 255, 47, 0.837);
+  background-color: rgba(199, 70, 19, 0.911);
 }
 
 #content {
@@ -43,7 +43,7 @@ body {
   flex-direction: column;
   align-items: center;
   min-height: 90%;
-  width: 60%;
+  width: 70%;
   margin: 10px;
   padding: 20px;
   border-radius: 10px;
@@ -55,7 +55,7 @@ body {
 
 #title {
   border: 8px solid black;
-  font-size: 30px;
+  font-size: 25px;
   font-weight: 1000;
   font-family: cursive;
   min-height: 60px;
@@ -63,6 +63,7 @@ body {
   text-align: center;
   line-height: 0px;
   margin-bottom: 70px;
+  min-width: 650px;
 }
 
 #review {

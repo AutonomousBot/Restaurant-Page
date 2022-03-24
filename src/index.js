@@ -1,4 +1,5 @@
 import './style.css';
+import marker from "./mapMarker.png";
 
 let currentTab = home;
 const contentSpace = document.getElementById("content");
@@ -40,9 +41,12 @@ const homeTab = (() => {
 
     const locationDiv = newElement("div", "subcontent", "location")
     contentSpace.appendChild(locationDiv)
-    const location = newElement("div", "subtitle", undefined, "Location")
+    const location = newElement("div", "subtitle", undefined, "Location  ")
     locationDiv.appendChild(location)
-    document.create
+    const mapMarker = document.createElement("img")
+    mapMarker.src = marker
+    location.appendChild(mapMarker)
+    locationDiv.appendChild(newElement("p", undefined, undefined, "Lands Between, Cave South of Caelid. (-184 : 162)"))
   }
   return {
     changeTabs
