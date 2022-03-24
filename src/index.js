@@ -5,6 +5,7 @@ import runes from "./runes.png"
 import seed from "./goldenSeed.png"
 import tear from "./sacredTear.png"
 import fruit from "./rowaFruit.png"
+import crab from "./crabEggs.png"
 
 const homeButton = document.getElementById("navigation").children[0]
 const menuButton = document.getElementById("navigation").children[1]
@@ -128,6 +129,18 @@ const menuTab = (() => {
     fruitSubcontainer.appendChild(fruitPrice)
     fruitPrice.appendChild(newElement("img", undefined, undefined, runes))
     fruitSubcontainer.appendChild(newElement("img", undefined, undefined, fruit))
+
+    // Crab Eggs
+    const crabContainer = newElement("div", "subcontent")
+    contentSpace.appendChild(crabContainer)
+    crabContainer.appendChild(newElement("div", "subtitle", undefined, "Crab Egss"))
+    crabContainer.appendChild(newElement("p", undefined, undefined, "Crab Eggs are used in many meat dishes resulting in a very healthy, robuste meal. We refill our stocks after every visit!"))
+    const crabSubcontainer = (newElement("div", "container"))
+    crabContainer.appendChild(crabSubcontainer)
+    const crabPrice = newElement("div", "price", undefined, "10")
+    crabSubcontainer.appendChild(crabPrice)
+    crabPrice.appendChild(newElement("img", undefined, undefined, runes))
+    crabSubcontainer.appendChild(newElement("img", undefined, undefined, crab))
   }
   return {
     changeTabs
