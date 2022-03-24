@@ -20,6 +20,9 @@ body {
 #navigation button {
   font-size: 20px;
   background-color: aliceblue;
+  display: flex;
+  align-items: center;
+  position: relative;
 }
 
 #navigation {
@@ -36,6 +39,13 @@ body {
   background-color: rgba(199, 70, 19, 0.911);
 }
 
+.tabSelector {
+  position: absolute;
+  bottom: -16px;
+  left: -15px;
+}
+
+/* Main page */
 #content {
   font-family: 'Helvetica Neue, sans-serif';
   font-size: 20px;
@@ -53,6 +63,7 @@ body {
   background-position: center;
 }
 
+/* Title of the current tab */
 #title {
   border: 8px solid black;
   font-size: 25px;
@@ -66,6 +77,7 @@ body {
   min-width: 650px;
 }
 
+ /* Review from Home Tab */
 #review {
   /* text-align: center; */
   width: 300px;
@@ -85,12 +97,14 @@ body {
   max-width: 400px;
 }
 
+/* Types of food from Menu Tab */
 .menuType {
   font-weight: bold;
   font-size: 25px;
   border: 5px solid black;
 }
 
+/* Prices of food from Menu Tab */
 .price {
   line-height: 0px;
   height: 40px;
