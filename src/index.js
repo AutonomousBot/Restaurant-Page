@@ -6,6 +6,9 @@ import seed from "./goldenSeed.png"
 import tear from "./sacredTear.png"
 import fruit from "./rowaFruit.png"
 import crab from "./crabEggs.png"
+import riceBowl from "./riceBowl.jpg"
+import exalted from "./exaltedFlesh.png"
+import turtle from "./pickledTurtleNeck.png"
 
 const homeButton = document.getElementById("navigation").children[0]
 const menuButton = document.getElementById("navigation").children[1]
@@ -87,8 +90,9 @@ const menuTab = (() => {
     titleDiv.appendChild(title);
 
     // Beverages section
-    const menuTypeDiv = newElement("div", "subcontent", undefined, "Beverages")
-    contentSpace.appendChild(menuTypeDiv);
+    const beveragesDiv = newElement("div", "subcontent", undefined, "Beverages")
+    beveragesDiv.classList.add("menuType")
+    contentSpace.appendChild(beveragesDiv);
 
     // Yummy golden seed
     const beveragesContainer = newElement("div", "subcontent")
@@ -116,6 +120,7 @@ const menuTab = (() => {
 
     // Sides section
     const sidesDiv = newElement("div", "subcontent", undefined, "Sides")
+    sidesDiv.classList.add("menuType")
     contentSpace.appendChild(sidesDiv);
 
     // Rowa Fruit
@@ -141,6 +146,47 @@ const menuTab = (() => {
     crabSubcontainer.appendChild(crabPrice)
     crabPrice.appendChild(newElement("img", undefined, undefined, runes))
     crabSubcontainer.appendChild(newElement("img", undefined, undefined, crab))
+
+    // Main Dish Section
+  const mainDishDiv = newElement("div", "subcontent", undefined, "Main Dishes")
+  mainDishDiv.classList.add("menuType")
+  contentSpace.appendChild(mainDishDiv);
+
+  // Radahn's Famous Rice
+  const riceBowlContainer = newElement("div", "subcontent")
+  contentSpace.appendChild(riceBowlContainer)
+  riceBowlContainer.appendChild(newElement("div", "subtitle", undefined, "Radahn's Famous Rice"))
+  riceBowlContainer.appendChild(newElement("p", undefined, undefined, "Just a bowl of rice. Tasty."))
+  const riceBowlSubcontainer = (newElement("div", "container"))
+  riceBowlContainer.appendChild(riceBowlSubcontainer)
+  const riceBowlPrice = newElement("div", "price", undefined, "10")
+  riceBowlSubcontainer.appendChild(riceBowlPrice)
+  riceBowlPrice.appendChild(newElement("img", undefined, undefined, runes))
+  riceBowlSubcontainer.appendChild(newElement("img", undefined, undefined, riceBowl))
+
+  // Exalted Flesh
+  const exaltedContainer = newElement("div", "subcontent")
+  contentSpace.appendChild(exaltedContainer)
+  exaltedContainer.appendChild(newElement("div", "subtitle", undefined, "Exalted Flesh"))
+  exaltedContainer.appendChild(newElement("p", undefined, undefined, "A fine piece of meat that makes you stronger. Many have felled numerous foes after eating this heroic delicacy."))
+  const exaltedSubcontainer = (newElement("div", "container"))
+  exaltedContainer.appendChild(exaltedSubcontainer)
+  const exaltedPrice = newElement("div", "price", undefined, "50")
+  exaltedSubcontainer.appendChild(exaltedPrice)
+  exaltedPrice.appendChild(newElement("img", undefined, undefined, runes))
+  exaltedSubcontainer.appendChild(newElement("img", undefined, undefined, exalted))
+
+  // Pickled Turtle Neck
+  const turtleContainer = newElement("div", "subcontent")
+  contentSpace.appendChild(turtleContainer)
+  turtleContainer.appendChild(newElement("div", "subtitle", undefined, "Pickled Turtle Neck"))
+  turtleContainer.appendChild(newElement("p", undefined, undefined, "A bitter medicinal piece of meat. Regardless of the Tarnished's tastes, it is a well of endless power when the nutrients course through your body."))
+  const turtleSubcontainer = (newElement("div", "container"))
+  turtleContainer.appendChild(turtleSubcontainer)
+  const turtlePrice = newElement("div", "price", undefined, "50")
+  turtleSubcontainer.appendChild(turtlePrice)
+  turtlePrice.appendChild(newElement("img", undefined, undefined, runes))
+  turtleSubcontainer.appendChild(newElement("img", undefined, undefined, turtle))
   }
   return {
     changeTabs
