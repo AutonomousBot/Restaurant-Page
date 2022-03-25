@@ -111,9 +111,28 @@ body {
   width: fit-content;
 }
 
+/* Containers for menu items */
 .container {
   display: flex;
   justify-content: space-between;
+}
+
+/* Contact containers. */
+.contactContainer {
+  min-width: 400px;
+  position: relative;
+  line-height: 2;
+}
+
+.contactContainer p {
+  line-height: 0.3;
+}
+
+/* Contact photos. */
+.contactPhoto {
+  position: absolute;
+  top: 30px;
+  right: 30px;
 }
 
 #footer {

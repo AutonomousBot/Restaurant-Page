@@ -9,12 +9,15 @@ import crab from "./crabEggs.png"
 import riceBowl from "./riceBowl.jpg"
 import exalted from "./exaltedFlesh.png"
 import turtle from "./pickledTurtleNeck.png"
+import melina from "./melina.jpeg"
+import fia from "./fia.jpeg"
+import ranni from "./ranni.png"
 
 const homeButton = document.getElementById("navigation").children[0]
 const menuButton = document.getElementById("navigation").children[1]
 const contactButton = document.getElementById("navigation").children[2]
 
-let currentTab = menuButton;
+let currentTab = contactButton;
 const contentSpace = document.getElementById("content");
 
 // for (i = 0; i < 3; i++) {
@@ -31,46 +34,46 @@ function newElement(elementType, className = "", idName = "", text) {
   return element
 }
 
-// const homeTab = (() => {
-//   const changeTabs = () => {
-//     // Change currentTab variable and the selected tab display.
-//     if (currentTab != homeButton) {
-//       currentTab.removeChild(currentTab.children[0])
-//       currentTab = homeButton
-//     }
-//     currentTab.appendChild(newElement("img", "tabSelector", undefined, tabSelector));
+const homeTab = (() => {
+  const changeTabs = () => {
+    // Change currentTab variable and the selected tab display.
+    if (currentTab != homeButton) {
+      currentTab.removeChild(currentTab.children[0])
+      currentTab = homeButton
+    }
+    currentTab.appendChild(newElement("img", "tabSelector", undefined, tabSelector));
 
-//     const titleDiv = newElement("div", "subcontent", "title");
-//     contentSpace.appendChild(titleDiv);
-//     const title = newElement("h1", undefined, undefined, "Radahn's Repas Restaurant");
-//     titleDiv.appendChild(title);
+    const titleDiv = newElement("div", "subcontent", "title");
+    contentSpace.appendChild(titleDiv);
+    const title = newElement("h1", undefined, undefined, "Radahn's Repas Restaurant");
+    titleDiv.appendChild(title);
 
-//     const reviewDiv = newElement("div", "subcontent", "review", "Even been stuck in a raid with your boys for months in the middle of the desert? Fear not for this place is located in a cave right by General Radahn! It has excellent rice in different shapes and forms.")
-//     contentSpace.appendChild(reviewDiv);
-//     reviewDiv.appendChild(newElement("p", "subtitle", "reviewer", "Tarnished (Real)"));
+    const reviewDiv = newElement("div", "subcontent", "review", "Even been stuck in a raid with your boys for months in the middle of the desert? Fear not for this place is located in a cave right by General Radahn! It has excellent rice in different shapes and forms.")
+    contentSpace.appendChild(reviewDiv);
+    reviewDiv.appendChild(newElement("p", "subtitle", "reviewer", "Tarnished (Real)"));
 
-//     const scheduleDiv = newElement("div", "subcontent", "schedule")
-//     contentSpace.appendChild(scheduleDiv)
-//     scheduleDiv.appendChild(newElement("div", "subtitle", undefined, "Hours"))
-//     scheduleDiv.appendChild(newElement("p", undefined, undefined, "Sunday: 8am - 8pm"))
-//     scheduleDiv.appendChild(newElement("p", undefined, undefined, "Monday: 6am - 8pm"))
-//     scheduleDiv.appendChild(newElement("p", undefined, undefined, "Tuesday: 6am - 8pm"))
-//     scheduleDiv.appendChild(newElement("p", undefined, undefined, "Wednesday: 6am - 8pm"))
-//     scheduleDiv.appendChild(newElement("p", undefined, undefined, "Thursday: 6am - 8pm"))
-//     scheduleDiv.appendChild(newElement("p", undefined, undefined, "Friday: 6am - 10pm"))
-//     scheduleDiv.appendChild(newElement("p", undefined, undefined, "Saturday: 8am - 10pm"))
+    const scheduleDiv = newElement("div", "subcontent", "schedule")
+    contentSpace.appendChild(scheduleDiv)
+    scheduleDiv.appendChild(newElement("div", "subtitle", undefined, "Hours"))
+    scheduleDiv.appendChild(newElement("p", undefined, undefined, "Sunday: 8am - 8pm"))
+    scheduleDiv.appendChild(newElement("p", undefined, undefined, "Monday: 6am - 8pm"))
+    scheduleDiv.appendChild(newElement("p", undefined, undefined, "Tuesday: 6am - 8pm"))
+    scheduleDiv.appendChild(newElement("p", undefined, undefined, "Wednesday: 6am - 8pm"))
+    scheduleDiv.appendChild(newElement("p", undefined, undefined, "Thursday: 6am - 8pm"))
+    scheduleDiv.appendChild(newElement("p", undefined, undefined, "Friday: 6am - 10pm"))
+    scheduleDiv.appendChild(newElement("p", undefined, undefined, "Saturday: 8am - 10pm"))
 
-//     const locationDiv = newElement("div", "subcontent", "location")
-//     contentSpace.appendChild(locationDiv)
-//     const location = newElement("div", "subtitle", undefined, "Location  ")
-//     locationDiv.appendChild(location)
-//     location.appendChild(newElement("img", undefined, undefined, marker))
-//     locationDiv.appendChild(newElement("p", undefined, undefined, "Lands Between, Cave South of Caelid. (-184 : 162)"))
-//   }
-//   return {
-//     changeTabs
-//   }
-// })()
+    const locationDiv = newElement("div", "subcontent", "location")
+    contentSpace.appendChild(locationDiv)
+    const location = newElement("div", "subtitle", undefined, "Location  ")
+    locationDiv.appendChild(location)
+    location.appendChild(newElement("img", undefined, undefined, marker))
+    locationDiv.appendChild(newElement("p", undefined, undefined, "Lands Between, Cave South of Caelid. (-184 : 162)"))
+  }
+  return {
+    changeTabs
+  }
+})()
 
 // homeTab.changeTabs();
 
@@ -193,4 +196,54 @@ const menuTab = (() => {
   }
 })()
 
-menuTab.changeTabs();
+// menuTab.changeTabs();
+
+const contactTab = (() => {
+  const changeTabs = () => {
+    // Change currentTab variable and the selected tab display.
+    if (currentTab != contactButton) {
+      currentTab.removeChild(currentTab.children[0])
+      currentTab = contactButton
+    }
+    currentTab.appendChild(newElement("img", "tabSelector", undefined, tabSelector));
+
+    const titleDiv = newElement("div", "subcontent", "title");
+    contentSpace.appendChild(titleDiv);
+    const title = newElement("h1", undefined, undefined, "Contact Us");
+    titleDiv.appendChild(title);
+
+
+    const melinaDiv = newElement("div", "subcontent")
+    melinaDiv.classList.add("contactContainer")
+    contentSpace.appendChild(melinaDiv)
+    melinaDiv.appendChild(newElement("div", "subtitle", undefined, "Melina"))
+    melinaDiv.appendChild(newElement("p", undefined, undefined, "Maiden (Fake)"))
+    melinaDiv.appendChild(newElement("p", undefined, undefined, "TOU-CHG-RASS"))
+    melinaDiv.appendChild(newElement("p", undefined, undefined, "melina@fromsoft.com"))
+    melinaDiv.appendChild(newElement("img", "contactPhoto", undefined, melina))
+
+    const fiaDiv = newElement("div", "subcontent")
+    fiaDiv.classList.add("contactContainer")
+    contentSpace.appendChild(fiaDiv)
+    fiaDiv.appendChild(newElement("div", "subtitle", undefined, "Fia"))
+    fiaDiv.appendChild(newElement("p", undefined, undefined, "Mom"))
+    fiaDiv.appendChild(newElement("p", undefined, undefined, "WAR-MHU-GNOW"))
+    fiaDiv.appendChild(newElement("p", undefined, undefined, "fia@fromsoft.com"))
+    fiaDiv.appendChild(newElement("img", "contactPhoto", undefined, fia))
+
+    const ranniDiv = newElement("div", "subcontent")
+    ranniDiv.classList.add("contactContainer")
+    contentSpace.appendChild(ranniDiv)
+    ranniDiv.appendChild(newElement("div", "subtitle", undefined, "Ranni"))
+    ranniDiv.appendChild(newElement("p", undefined, undefined, "Wife (?)"))
+    ranniDiv.appendChild(newElement("p", undefined, undefined, "CON-VOL-UTED"))
+    ranniDiv.appendChild(newElement("p", undefined, undefined, "ranni@fromsoft.com"))
+    ranniDiv.appendChild(newElement("img", "contactPhoto", undefined, ranni))
+
+  }
+  return {
+    changeTabs
+  }
+})()
+
+contactTab.changeTabs();
