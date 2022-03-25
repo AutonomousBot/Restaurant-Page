@@ -13,17 +13,16 @@ import melina from "./melina.jpeg"
 import fia from "./fia.jpeg"
 import ranni from "./ranni.png"
 
+// Tab switcher buttons
 const homeButton = document.getElementById("navigation").children[0]
 const menuButton = document.getElementById("navigation").children[1]
 const contactButton = document.getElementById("navigation").children[2]
 
-let currentTab = contactButton;
+let currentTab = homeButton;
+// Main page element.
 const contentSpace = document.getElementById("content");
 
-// for (i = 0; i < 3; i++) {
-//   document.getElementById("navigation").children[i].addEventListener("click", function, false)
-// }
-
+// Creates element with class, id, text specifications.
 function newElement(elementType, className = "", idName = "", text) {
   const element = document.createElement(`${elementType}`);
   if (className != "") {  element.classList.add(`${className}`) }
@@ -39,9 +38,21 @@ const homeTab = (() => {
     // Change currentTab variable and the selected tab display.
     if (currentTab != homeButton) {
       currentTab.removeChild(currentTab.children[0])
+      // Clears previous tab.
+      contentSpace.textContent = ""
+      if (currentTab == menu) {
+        menuButton.addEventListener("click", menuTab.changeTabs, false)
+      }
+      else {
+        contactButton.addEventListener("click", contactTab.changeTabs, false)
+      }
       currentTab = homeButton
     }
-    currentTab.appendChild(newElement("img", "tabSelector", undefined, tabSelector));
+    // Disable current tab's click event.
+    homeButton.removeEventListener("click", homeTab.changeTabs, false)
+    if (homeButton.children.length == 0) {
+      currentTab.appendChild(newElement("img", "tabSelector", undefined, tabSelector));
+    }
 
     const titleDiv = newElement("div", "subcontent", "title");
     contentSpace.appendChild(titleDiv);
@@ -75,15 +86,26 @@ const homeTab = (() => {
   }
 })()
 
-// homeTab.changeTabs();
+homeTab.changeTabs();
 
 const menuTab = (() => {
   const changeTabs = () => {
     // Change currentTab variable and the selected tab display.
     if (currentTab != menuButton) {
       currentTab.removeChild(currentTab.children[0])
+      // Gives back click event for previous tab.
+      if (currentTab == homeButton) {
+        homeButton.addEventListener("click", homeTab.changeTabs, false)
+      }
+      else {
+        contactButton.addEventListener("click", contactTab.changeTabs, false)
+      }
+      // Clears previous tab.
+      contentSpace.textContent = ""
       currentTab = menuButton
     }
+    // Disable current tab's click event.
+    menuButton.removeEventListener("click", menuTab.changeTabs, false)
     currentTab.appendChild(newElement("img", "tabSelector", undefined, tabSelector));
 
     // Menu
@@ -196,15 +218,23 @@ const menuTab = (() => {
   }
 })()
 
-// menuTab.changeTabs();
-
 const contactTab = (() => {
   const changeTabs = () => {
     // Change currentTab variable and the selected tab display.
     if (currentTab != contactButton) {
       currentTab.removeChild(currentTab.children[0])
+      // Clears previous tab.
+      contentSpace.textContent = ""
+      if (currentTab == homeButton) {
+        homeButton.addEventListener("click", homeTab.changeTabs, false)
+      }
+      else {
+        menuButton.addEventListener("click", menuTab.changeTabs, false)
+      }
       currentTab = contactButton
     }
+    // Disable current tab's click event.
+    contactButton.removeEventListener("click", contactTab.changeTabs, false)
     currentTab.appendChild(newElement("img", "tabSelector", undefined, tabSelector));
 
     const titleDiv = newElement("div", "subcontent", "title");
@@ -246,4 +276,6 @@ const contactTab = (() => {
   }
 })()
 
-contactTab.changeTabs();
+homeButton.addEventListener("click", homeTab.changeTabs, false)
+menuButton.addEventListener("click", menuTab.changeTabs, false)
+contactButton.addEventListener("click", contactTab.changeTabs, false)
