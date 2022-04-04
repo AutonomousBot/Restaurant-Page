@@ -9,6 +9,7 @@ const contactButton = document.getElementById("navigation").children[2]
 const contentSpace = document.getElementById("content");
 export {contentSpace};
 
+// Set default page.
 let currentTab = homeButton;
 
 import home from "./home.js"
@@ -17,63 +18,33 @@ import contact from "./contact"
 import newElement from "./elementCreator.js"
 import tabSelector from "./images/hpBar.png"
 
-
-homeButton.addEventListener("click", () => {
-  // Change currentTab variable and the selected tab display.
-  if (currentTab != homeButton) {
-    currentTab.removeChild(currentTab.children[0])
-    if (currentTab == menuButton) {
-      menuButton.disabled = false;
-    }
-    else {
-      contactButton.disabled = false;
-    }
-    currentTab = homeButton
-  }
-  // Clears previous tab.
+// Tab switching logic.
+function clickTabSwitcher() {
+  // Clears current tab
   contentSpace.textContent = ""
+  // Check if current tab is the same as the one user clicked to prevent the function from triggering every click.
+  if (currentTab != this) {
+    // Removes health bar from current tab.
+    currentTab.removeChild(currentTab.children[0])
+    // Reenable current tab's click event.
+    currentTab.disabled = false
+    // Change current tab to new one.
+    currentTab = this
+  }
   // Disable current tab's click event.
-  homeButton.disabled = true;
+  currentTab.disabled = true;
   if (homeButton.children.length == 0) {
     currentTab.appendChild(newElement("img", "tabSelector", undefined, tabSelector));
   }
-  home();
-}, false)
+  if (currentTab == homeButton) { home(); }
+  else if (currentTab == menuButton) { menu(); }
+  else { contact(); }
+}
 
-menuButton.addEventListener("click", () => {
-  // Change currentTab variable and the selected tab display.
-  currentTab.removeChild(currentTab.children[0])
-  if (currentTab == homeButton) {
-    homeButton.disabled = false;
-  }
-  else {
-    contactButton.disabled = false;
-  }
-  currentTab = menuButton
-  // Clears previous tab.
-  contentSpace.textContent = ""
-  // Disable current tab's click event.
-  menuButton.disabled = true;
-  currentTab.appendChild(newElement("img", "tabSelector", undefined, tabSelector));
-  menu();
-}, false)
+// Adds clickTabSwitcher to each button click event.
+homeButton.addEventListener("click", clickTabSwitcher, false)
+menuButton.addEventListener("click", clickTabSwitcher, false)
+contactButton.addEventListener("click", clickTabSwitcher, false)
 
-contactButton.addEventListener("click", () => {
-    // Change currentTab variable and the selected tab display.
-    currentTab.removeChild(currentTab.children[0])
-    if (currentTab == homeButton) {
-      homeButton.disabled = false;
-    }
-    else {
-      menuButton.disabled = false;
-    }
-    currentTab = contactButton
-    // Clears previous tab.
-    contentSpace.textContent = ""
-    // Disable current tab's click event.
-    contactButton.disabled = true;
-    currentTab.appendChild(newElement("img", "tabSelector", undefined, tabSelector));
-  contact();
-}, false)
-
+// Default page on load.
 homeButton.click()
